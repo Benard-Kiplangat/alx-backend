@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+"""
+TheDeletion-resilient hypermedia pagination
+"""
 
 import csv
 import math
