@@ -37,7 +37,8 @@ class Server:
         Getting the items for a given page number
         Args: page <int> - page number
             page_size <int> - number of items per page
-        Returns: <List[List]> - a list of list(row) when inputs are within range
+        Returns: <List[List]> - a list of list(row)
+                 when inputs are within range
                  ([]) - an empty list if parameters are out of range
         """
         assert type(page) == int and type(page_size) == int
