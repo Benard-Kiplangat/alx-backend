@@ -12,7 +12,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
 
     attr: page <int> - the page number
           page_size <int> - the size of each page
-    
+
     Return: Tuple of integers of size two
     """
     nextPageStartIndex = page * page_size
