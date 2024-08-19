@@ -1,11 +1,7 @@
-#!/usr/bin/env python3
-"""
-Deletion-resilient hypermedia pagination
-"""
 
 import csv
 import math
-from typing import List
+from typing import Dict, List
 
 
 class Server:
@@ -40,4 +36,29 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-            pass
+        """
+        Deletion-resilient hypermedia pagination:
+        The goal here is that if between two queries,
+        certain rows are removed from the dataset, the user
+        does not miss items from dataset when changing page.
+        Args:
+            index <int>: start index of the current page
+            page_size <int>: size of items required
+        Returns:
+            Dict[int, int|List[List]|None]: a dictionary of the following:
+                * index, next_index, page_size, data
+        """
+        focus = []
+        dataset = self.indexed_dataset()
+        index = 0 if index is None else index
+        keys = sorted(dataset.keys())
+
+        assert index >= 0 and index <= keys[-1]
+        [focus.append(i)
+         for i in keys if i >= index and len(focus) <= page_size]
+
+        data = [dataset[v] for v in focus[:-1]]
+        next_index = focus[-1] if len(focus) - page_size == 1 else None
+
+        return {'index': index, 'data': data,
+                'page_size': len(data), 'next_index': next_index}
