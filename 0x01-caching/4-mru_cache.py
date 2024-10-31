@@ -5,6 +5,7 @@
 from collections import OrderedDict
 from base_caching import BaseCaching
 
+
 class MRUCache(BaseCaching):
     """A caching system MRU policy: class MRUCache extends the
        BaseCaching class and implements MRU cache policy
