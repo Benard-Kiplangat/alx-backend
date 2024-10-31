@@ -5,6 +5,7 @@
 from collections import OrderedDict
 from base_caching import BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """A caching system FIFO policy: class FIFOCache extends the
        BaseCaching class and implements FIFO cache policy
