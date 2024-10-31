@@ -5,6 +5,7 @@
 from collections import OrderedDict
 from base_caching import BaseCaching
 
+
 class LIFOCache(BaseCaching):
     """A caching system LIFO policy: class LIFOCache extends the
        BaseCaching class and implements LIFO cache policy
