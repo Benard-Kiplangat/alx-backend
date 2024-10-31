@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Hypermedia pagination
+Hypermedia pagination 
 """
 import csv
 from typing import Dict, List, Tuple, Union
